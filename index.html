@@ -2,12 +2,31 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/nav.css">
     <title>Binge Finder</title>
     <link rel="stylesheet" href="./src/home.css">
   </head>
   <body>
+
+    <nav>
+      <div class="topnav">
+        <div id="navItems">
+          <img class="icons" src="Assets/popcorn.png" alt="popcorn">
+          <!-- Search Bar -->
+          <form class="search-bar" action="">
+            <input id="search" type="text" placeholder="Search.." name="query">
+            <button type="submit" aria-label="Search">
+              <img id="magnifying-glass" src="Assets/magnifying-glass.png" alt="">
+            </button>
+          </form>
+          <!-- Saved Icon -->
+          <div class="saved-container">
+            <img class="icons" id="saved" src="Assets/saved.png" alt="saved">
+          </div>
+        </div>
+      </div>
+    </nav>
     <div id="app">
       <div id="heading">
         <h3>Welcome to...</h3>

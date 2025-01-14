@@ -1,0 +1,111 @@
+/* General Body Style */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-family: Arial, sans-serif;
+}
+
+/* Top Navigation Bar */
+.topnav {
+    background-color: black;
+    border-bottom: 1px solid white;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10%;
+}
+
+/* Navigation Items */
+#navItems {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Icons */
+.icons {
+    height: 75px;
+
+}
+
+/* Search Bar Container */
+.search-bar {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 50%;
+}
+
+/* Search Input */
+#search {
+    width: 100%;
+    height: 40px;
+    padding: 0 15px;
+    border: 1px solid #ddd;
+    border-radius: 25px 0 0 25px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s ease-in-out;
+}
+
+/* Search Input Focus */
+#search:focus {
+    border-color: #aaa;
+}
+
+/* Search Button */
+button {
+    width: 50px;
+    height: 42px;
+    border: none;
+    background-color: #d10000;
+    border-radius: 0 25px 25px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #e4e4e4;
+}
+
+button i {
+    color: #555;
+    font-size: 18px;
+}
+
+/* Saved Icon Hover Effect */
+.saved-container {
+    position: relative;
+    width: 45px;
+    height: 45px;
+}
+
+#saved {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.saved-container:hover #saved {
+    opacity: 0;
+}
+
+.saved-container:hover {
+    background-image: url("../Assets/savedred.png");
+    background-size: cover;
+    background-position: center;
+
+    cursor: pointer;
+}
+#magnifying-glass{
+    height: 15px
+}
