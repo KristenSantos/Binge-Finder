@@ -34,7 +34,7 @@ const main = async () => {
             }
             img.alt = show.name;
             const link = document.createElement('a');
-            link.href = `./index.html?id=${show.id}`
+            link.href = `./show-info.html?id=${show.id}`
             link.classList.add('cardLink');
             const overlayDiv = document.createElement('div');
             overlayDiv.classList.add("overlay");
