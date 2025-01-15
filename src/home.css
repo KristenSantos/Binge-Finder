@@ -73,6 +73,12 @@ body {
 .showCard .overlay p{
     text-align: center;
 }
+.overlay-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 .showCard:hover img {
     filter: brightness(50%);
@@ -98,4 +104,26 @@ body {
 #saved-heading{
     margin-top: 30px;
     margin-bottom: 20px;
+}
+
+.pag{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pag h3{
+    padding: 0 10px;
+    margin: 0;
+}
+.pag svg, .overlay-content svg{
+    transition: all .2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.pag svg:hover{
+    cursor:pointer;
+    transform: scale(1.2);
+}
+
+.overlay-content svg:hover{
+    cursor:pointer;
+    transform: scale(1.1);
 }

@@ -7,4 +7,10 @@ body{
 
 #star {
     height: 40px;
+    cursor: pointer;
+    transition: all .3s cubic-bezier(0.34, 1.76, 0.64, 1);
+}
+
+#star:hover{
+    transform: scale(1.1);
 }

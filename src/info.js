@@ -10,10 +10,27 @@ const rating = document.getElementById("rating");
 const airDate = document.getElementById("air-date");
 const moreinfo = document.getElementById("more-info");
 const starButton = document.getElementById("star");
-
+const savedShows = JSON.parse(localStorage.getItem("shows")) || {};
 //Local Storage
-const localStorage = () => {
-    
+const starClick = (showData) => {
+    if(id in savedShows){
+      delete savedShows[id]
+      localStorage.setItem("shows", JSON.stringify(savedShows));
+      starButton.src = "../Assets/Star.png"
+    } else {
+      savedShows[id] = {
+        name:showData.name,
+        image: {
+          medium: showData.image.medium,
+          original: showData.image.original
+        },
+        rating: {
+          average: showData.rating.average
+        }
+      }
+      localStorage.setItem("shows", JSON.stringify(savedShows));
+      starButton.src = "../Assets/redstar.png"
+    }
 }
 
 const fetchShow = async (id) => {
@@ -29,7 +46,10 @@ const fetchShow = async (id) => {
 
 const updateInfo = async (id) => {
   const showData = await fetchShow(id);
-  starButton.addEventListener("click",localStorage)
+  if(id in savedShows){
+    starButton.src = "../Assets/redstar.png"
+  }
+  starButton.addEventListener("click", () => starClick(showData))
   image.src = showData.image.medium || showData.image.original;
   image.alt = showData.name;
   tvImage.appendChild(image);
@@ -39,7 +59,7 @@ const updateInfo = async (id) => {
   rating.textContent = showData.rating.average;
   airDate.textContent = showData.premiered;
   moreinfo.innerHTML = showData.summary;
-
+  
 };
 
 updateInfo(id);

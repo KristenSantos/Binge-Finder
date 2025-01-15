@@ -1,18 +1,22 @@
 const main = async () => {
   const showDiv = document.getElementById("main-show-div");
   const searchBar = document.getElementsByClassName("search-bar")[0];
+  const leftPag = document.getElementById("left-pag");
+  const rightPag = document.getElementById('right-pag');
+  const currentPage = document.getElementById("current-page")
+  const pagDiv = document.getElementsByClassName('pag')[0];
+  let pagNum = 0;
 
   const fetchGeneralShows = async () => {
     try {
       const response = await fetch("https://api.tvmaze.com/show");
       const data = await response.json();
-      const splice = data.splice(0, 20);
-      console.log(splice);
-      return splice;
+      return data;
     } catch (error) {
       console.warn(error);
     }
   };
+  const generalShowArray = await fetchGeneralShows();
 
     const showLister = (shows) => {
         showDiv.innerHTML = "";
@@ -21,7 +25,10 @@ const main = async () => {
         }
         for (let show of shows) {
             if("show" in show){
-                show = show.show
+                show = show.show;
+                pagDiv.style.display = "none";
+            } else {
+              pagDiv.style.display = "flex";
             }
             const cardDiv = document.createElement('div');
             cardDiv.classList.add("showCard");
@@ -52,9 +59,8 @@ const main = async () => {
       showDiv.append(link);
     }
   };
-
-  const generalShowArray = await fetchGeneralShows();
-  showLister(generalShowArray);
+  
+  showLister([...generalShowArray].splice(currentPage, 20));
 
   const fetchSearchShows = async (query) => {
     try {
@@ -73,7 +79,28 @@ const main = async () => {
     e.preventDefault();
     const val = e.target.query.value;
     const shows = await fetchSearchShows(val);
-    showLister(val ? shows : generalShowArray);
+    pagNum = 0;
+    currentPage.textContent = pagNum + 1;
+    showLister(val ? shows : [...generalShowArray].splice(0 * 20, 20));
   });
+
+  leftPag.addEventListener('click', () => {
+    if(pagNum === 0) return;
+    pagNum--;
+    currentPage.textContent = pagNum + 1
+    showLister([...generalShowArray].splice(pagNum * 20, 20));
+  })
+
+  rightPag.addEventListener('click', () => {
+    pagNum++;
+    const arr = [...generalShowArray].splice(pagNum * 20, 20);
+    if(!arr.length) {
+      pagNum--
+      return;
+    };
+    currentPage.textContent = pagNum + 1
+    showLister(arr);
+  })
+
 };
 main();
