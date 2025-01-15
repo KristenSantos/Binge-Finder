@@ -34,8 +34,11 @@ const main = async () => {
                 img.src = "https://core.trac.wordpress.org/raw-attachment/ticket/45927/placeholder-image-portrait.png"
             }
             img.alt = show.name;
-        
+            const link = document.createElement('a');
+            link.href = `./index.html?id=${show.id}`
+            link.classList.add('cardLink');
             const overlayDiv = document.createElement('div');
+            cardDiv.a = `./index.html?id=${show.id}`
             overlayDiv.classList.add("overlay");
             const ratingDiv = document.createElement('div');
             ratingDiv.classList.add('rating-div')
@@ -47,7 +50,8 @@ const main = async () => {
             title.textContent = show.name;
             overlayDiv.appendChild(title);
             cardDiv.append(img, overlayDiv, ratingDiv);
-            showDiv.append(cardDiv);
+            link.append(cardDiv)
+            showDiv.append(link);
         }
     }
 
