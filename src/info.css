@@ -1,0 +1,10 @@
+body{
+    color: white;
+}
+#starting-info {
+    display: flex;
+}
+
+#star {
+    height: 40px;
+}
