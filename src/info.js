@@ -127,26 +127,41 @@ const updateCast = async (id) => {
 
   for (let char of limitedCast) {
     let castMember = char.person;
+    let character = char.character
     let castMemberChar = char.character;
 
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("castCard");
 
-    const img = document.createElement("img");
+    // const img = document.createElement("img");
     const castMemberName = document.createElement("h3");
     const castMemberCharacter = document.createElement("p");
+    const flipCard = document.createElement('div');
+    flipCard.classList.add("flip-card", "flipImg");
+    let frontImg = castMember.image? castMember.image.original: "https://thumbs.dreamstime.com/b/woman-icon-picture-profile-female-icon-human-people-sign-symbol-template-design-vector-woman-icon-picture-197275689.jpg";
+    let backImg = character.image? character.image.original: "https://thumbs.dreamstime.com/b/woman-icon-picture-profile-female-icon-human-people-sign-symbol-template-design-vector-woman-icon-picture-197275689.jpg"
+    flipCard.innerHTML = `
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img class="flipImg" src="${frontImg}" alt="Actor">
+        </div>
+        <div class="flip-card-back">
+        <img class="flipImg" src="${backImg}" alt="Character"> 
+        </div>
+      </div>
+    `
 
-    if (castMember.image) {
-      img.src = castMember.image.original;
-    } else {
-      img.src =
-        "https://thumbs.dreamstime.com/b/woman-icon-picture-profile-female-icon-human-people-sign-symbol-template-design-vector-woman-icon-picture-197275689.jpg";
-    }
-    img.alt = castMember.name;
+    // if (castMember.image) {
+    //   img.src = castMember.image.original;
+    // } else {
+    //   img.src =
+    //     "https://thumbs.dreamstime.com/b/woman-icon-picture-profile-female-icon-human-people-sign-symbol-template-design-vector-woman-icon-picture-197275689.jpg";
+    // }
+    // img.alt = castMember.name;
     castMemberName.innerText = castMember.name;
     castMemberCharacter.innerText = `as ${castMemberChar.name}`;
 
-    cardDiv.append(img, castMemberName, castMemberCharacter);
+    cardDiv.append(flipCard, castMemberName, castMemberCharacter);
 
     displayCast.appendChild(cardDiv);
   }
