@@ -22,6 +22,7 @@ const main = async () => {
         showDiv.innerHTML = "";
         if(shows.length === 0){
             showDiv.innerHTML = `<p>No Results Found</p>`
+            pagDiv.style.display = "none";
         }
         for (let show of shows) {
             if("show" in show){
