@@ -16,35 +16,36 @@ const type = document.getElementById("type");
 const minutes = document.getElementById("minutes");
 const moreinfo = document.getElementById("more-info");
 const starButton = document.getElementById("star");
+// const displayCast = document.getElementById("display-cast");;
+const displayCast = document.querySelector(".display-cast");
 const savedShows = JSON.parse(localStorage.getItem("shows")) || {};
 //Local Storage
 const starClick = (showData) => {
-    if(id in savedShows){
-      delete savedShows[id]
-      localStorage.setItem("shows", JSON.stringify(savedShows));
-      starButton.src = "../Assets/Star.png"
-    } else {
-      savedShows[id] = {
-        name:showData.name,
-        image: {
-          medium: showData.image.medium,
-          original: showData.image.original
-        },
-        rating: {
-          average: showData.rating.average
-        }
-      }
-      localStorage.setItem("shows", JSON.stringify(savedShows));
-      starButton.src = "../Assets/redstar.png"
-    }
-}
+  if (id in savedShows) {
+    delete savedShows[id];
+    localStorage.setItem("shows", JSON.stringify(savedShows));
+    starButton.src = "../Assets/Star.png";
+  } else {
+    savedShows[id] = {
+      name: showData.name,
+      image: {
+        medium: showData.image.medium,
+        original: showData.image.original,
+      },
+      rating: {
+        average: showData.rating.average,
+      },
+    };
+    localStorage.setItem("shows", JSON.stringify(savedShows));
+    starButton.src = "../Assets/redstar.png";
+  }
+};
 const stat = document.getElementById("status");
 
 const fetchShow = async (id) => {
   try {
     const response = await fetch(`https://api.tvmaze.com/shows/${id}`);
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (error) {
     console.warn(error);
@@ -56,7 +57,6 @@ const fetchCast = async (id) => {
       `https://api.tvmaze.com/shows/${id}?embed=cast`
     );
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (err) {
     console.warn(err);
@@ -65,17 +65,16 @@ const fetchCast = async (id) => {
 
 const updateInfo = async (id) => {
   const showData = await fetchShow(id);
-  if(id in savedShows){
-    starButton.src = "../Assets/redstar.png"
+  if (id in savedShows) {
+    starButton.src = "../Assets/redstar.png";
   }
-  starButton.addEventListener("click", () => starClick(showData))
+  starButton.addEventListener("click", () => starClick(showData));
   image.src = showData.image.medium || showData.image.original;
-  const showCast = await fetchCast(id)
+  const showCast = await fetchCast(id);
   starButton.addEventListener("click", localStorage);
-  //   image.src = showData.image.original || 'https://core.trac.wordpress.org/raw-attachment/ticket/45927/placeholder-image-portrait.png';
   image.alt = showData.name;
   tvImage.appendChild(image);
-  console.log(showData.name);
+ 
   title.textContent = `${showData.name}`;
   stat.textContent = `Status: ${showData.status}`;
   type.textContent = showData.type;
@@ -88,7 +87,6 @@ const updateInfo = async (id) => {
     </svg>`;
 
   moreinfo.innerHTML = showData.summary;
-  
 
   if (showData.image) {
     image.src = showData.image.original;
@@ -115,4 +113,44 @@ const updateInfo = async (id) => {
   genre.appendChild(ul);
 };
 
+const updateCast = async (id) => {
+  const showCast = await fetchCast(id);
+
+  if (!showCast._embedded.cast || showCast._embedded.cast.length === 0) {
+    displayCast.innerHTML = `<p>No Results Found</p>`;
+    return;
+  }
+
+  displayCast.innerHTML = "";
+
+  const limitedCast = showCast._embedded.cast.slice(0, 7);
+
+  for (let char of limitedCast) {
+    let castMember = char.person;
+    let castMemberChar = char.character;
+
+    const cardDiv = document.createElement("div");
+    cardDiv.classList.add("castCard");
+
+    const img = document.createElement("img");
+    const castMemberName = document.createElement("h3");
+    const castMemberCharacter = document.createElement("p");
+
+    if (castMember.image) {
+      img.src = castMember.image.original;
+    } else {
+      img.src =
+        "https://thumbs.dreamstime.com/b/woman-icon-picture-profile-female-icon-human-people-sign-symbol-template-design-vector-woman-icon-picture-197275689.jpg";
+    }
+    img.alt = castMember.name;
+    castMemberName.innerText = castMember.name;
+    castMemberCharacter.innerText = `as ${castMemberChar.name}`;
+
+    cardDiv.append(img, castMemberName, castMemberCharacter);
+
+    displayCast.appendChild(cardDiv);
+  }
+};
+
+updateCast(id);
 updateInfo(id);
