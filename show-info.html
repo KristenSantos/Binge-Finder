@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info</title>
+    <link rel="stylesheet" href="src/nav.css">
+    <link rel="stylesheet" href="src/info.css">
+</head>
+<body>
+    <nav>
+        <div class="topnav">
+            <div id="navItems">
+                <a href="./index.html" id="logo">
+                    <img class="icons" src="Assets/popcorn.png" alt="popcorn">
+                </a>
+                <div class="saved-container">
+                    <a href="./saved.html">
+                        <img class="icons" id="saved" src="Assets/saved.png" alt="saved">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="show-details">
+            <div class="show-header">
+                <div id="tv-image" class="poster-container">
+                    <div id="genre" class="genre-tags"></div>
+                </div>
+                
+                <div id="details" class="info-container">
+                    <div class="title-section">
+                        <h1 id="title"></h1>
+                        <img id="star" src="./Assets/Star.png" alt="save star">
+                    </div>
+
+                    <div class="meta-info">
+                        <ul class="show-meta">
+                            <li id="air-date" class="little-details"></li>
+                            <li id="type" class="little-details"></li>
+                            <li id="minutes" class="little-details"></li>
+                            <li id="status" class="little-details"></li>
+                        </ul>
+                        <div id="rating" class="rating-container"></div>
+                    </div>
+
+                    <div id="more-info" class="summary"></div>
+                </div>
+            </div>
+
+            <div class="cast-section">
+                <h2>Cast</h2>
+                <div class="display-cast"></div>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="/src/info.js"></script>
+</body>
+</html>
