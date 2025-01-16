@@ -3,9 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/nav.css">
     <title>Binge Finder</title>
-    <link rel="stylesheet" href="./src/home.css">
+    <script type="module" crossorigin src="/Binge-Finder/assets/main-sWxCXaJj.js"></script>
+    <link rel="modulepreload" crossorigin href="/Binge-Finder/assets/nav-VnQTNZsj.js">
+    <link rel="stylesheet" crossorigin href="/Binge-Finder/assets/nav-D1Pguf8_.css">
+    <link rel="stylesheet" crossorigin href="/Binge-Finder/assets/home-DTa-PZtE.css">
   </head>
   <body>
 
@@ -13,19 +15,19 @@
       <div class="topnav">
         <div id="navItems">
           <a href="./index.html" id="logo">
-            <img class="icons" src="Assets/popcorn.png" alt="popcorn">
+            <img class="icons" src="/Binge-Finder/assets/popcorn-BWcdAshz.png" alt="popcorn">
           </a>
           <!-- Search Bar -->
           <form class="search-bar" action="">
             <input id="search" type="text" placeholder="Search.." name="query">
             <button type="submit" aria-label="Search">
-              <img id="magnifying-glass" src="Assets/magnifying-glass.png" alt="">
+              <img id="magnifying-glass" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAAAXNSR0IArs4c6QAABRRJREFUeF7tnQ2S2yAMheOTtXuydk/W7cnckIUMcUxAT0/8pMpMp7uz2AZ90hPIDt4uk3z2ff+ZdSX/Oe/hV/hl27bb/+/w2UYMIjP2r8vlUjJ2S9cCiL/Xc3ytCqUbgGj0YPDw0Rj9FZjPGCG/W+jN0MYcwL7vf4yNXrJjgDF9ZJgB2Pc9eGHy+JHO9rlt27QRQQcQpSZ5/UjDH689JQgagEzjrfSdBXMqEBQAE8lNK6SQGz5aG1u2UwOISXZ2ry8m6tH5AQYwsdZLHXaoJEEAFpScGpRhEMQA3tD4Cc4QCCIAxsbP6zuhvHD2+WG8qOuenJsBGBk/GD2VD0QFttifwIO92OsaCU0AyAn3ZnRm8Sz2L8zEWDC6QWgFsNeyWMPf6YY/XpMM4oPpJCX7VAGQ5vldBpMGSZQn836/BEDQ/e5JLfe0FfpfBEDQ/W46+kr+CBBMx/EKgKacbNrphnzz0ETrTNu1XiG9Zmv70xMrvWYq42d5IcyS0DK52ZhKAEJHkQKbWUdbPaoiRxoIJgn5CYDC+6c2/mGGhKwXTCYUZwCQOb9J5xhef3YOhZPRo+ABANoxyyRlCAGRWbqjMQAsIT2FVbM4KbOd7QhALD/sDll5fEGKkCigytAdACg/S3q/cmpKlSEVgJW9P4MgjQIzAFL5Wdr7lVFAk6FbBIBLdVoneup+IRdInY8WBQmAuO7zDvIzgwwlAFIdfAv50cgQywEdQKSwX6eBEilkAxhyccmArdsCd/4oOTBFgAP4/h6DpALsAJhRMSwCgCkobQrGNKD2XEAlgDIR2RzANzoHoHVh5fEOQGlA7eEOQGtB5fHDAET982mofBrKScIO4J6Eh64DhlxcqRrUw6WliOsWCdSFmAMYXAuSAnirxRiQgMOOLZTHFeEbMqwOUHUEPBlQhqAk4NBdGABLA0GbUQ8D9J8LIM6E/ksZQuSH6Xz5UxFSAIEbZSZAdWfhyQD5oen/XYJiBCBPDi+djEHvp8nPAwBkQRadbdkoALQ/DNkUACJDS0YB6P1U+TmLAESGlswFM3j/EwBwNpTS3jJShCTem7FIi698nnD2BQ00CpaQIlR62NqfILC/IzY1BIXxTbz/VIIUU9IElTpLEE7ri801xrfy/iKACEH8vGg2+qkgKI1vGtW1rQpEd8oO7me+OUdLdKAJt5cz1QBoomCoJJG20TSP5GpNWxm+dwg9txEmeH0356kCUK4Njiph6lEkZ+na5yYAZAi3ekpc2Kj3dCZJTS2dmDmOBAC6QKsOLjZo2umc+O6BWr+6REIzAML6QDrg4yZ+kkfHpddqbU+PBBEAwvqgdaAzt6NCEANIliHONGY2dqlvNAgwAI8Gzo0ZFYDFIYQco80r6khQA1gUws1wpHWDCgIFQJYXGKULy5zwVJ8aDYEKYHIQxTt2IyGYAMjWDMz9nJHIaK7IjoJgBuAQDeFXZKM8xOjhmGbD5xcYAcEcwGGAISLCv/AeAO0M5AgH3gp/JISuAI4WyzbZlr6YIZUpoHcP1MKqZyQMBfDKEIe3q3Z/g2ovCNMCqHlpj7/3gOAAKiRJEIpTYAfQEEoECMUnKxxAAwBSueU0ChxAIwAChNMocAACAEoIDkBo62JzMCecVk09AkAqAAQHANqaEQnFewYeAUoqDZHw8uFeB6AEUEnM1btlDoAAICu9p2pv00Nm4TgHQASAnMoBIFYjHuMAiMZETuUAEKsRj3EARGMip/oHzZP1f1Jm+pwAAAAASUVORK5CYII=" alt="">
             </button>
           </form>
           <!-- Saved Icon -->
           <div class="saved-container">
-            <a href="./saved.html">
-              <img class="icons" id="saved" src="Assets/saved.png" alt="saved">
+            <a href="./saved/">
+              <img class="icons" id="saved" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAAXNSR0IArs4c6QAABDhJREFUeF7tnW1uo0AQRJmTJTlZkpPFORnr0eIVYv1B2dAzVD//sSJXjKvqTQ+QSC4Dj9QJlNTuMT8AQHIIAAAAkieQ3D4TAACSJ5DcPhMAAJInkNw+EwAAkieQ3D4TAACSJ5DcPhMAAJInkNw+EwAA/BIYx/F9clWf3244vGjmL58W2t/Zz6dSyvL1w4d36AkwFT0v+Vqpe5RUQfgHRynla4+DRLznoQCYrezPYRiiyl7bw3cVHg2GQwAwFd9j6bfg+D4KCF0DcMDil0B0D0K3AIzjWPfVuuodHt2C0CUA4zj+dLjHvwpilxB0BYDByF8DyUdPl5PdADCVX1d+hkc3EHQBQLLyL4B3AUFzAJKW3w0EPQDgeMK3dhurt5c/1or30DUFwOxS79l+ml4dNAMg+ehfwtLsfKAlAJlH/xKAZltBEwAY/Vd3iyZTAACe3bm3/70mUyAcAFb/XXLCpwAAbL+SX3nH8CnQAoDxlYTcf7ec/5Eg0mPowbj0W1Vt6DYQDYDT3/hXtfmEKPTGUDQAXPs/JiL0PCAaAPb/xwDUfywN6yXsQNX3eL4GXOE/vQQA0iMwhJ0Ihk0ArgAkqgFAistPDAB+nUqOAECKy08MAH6dSo4AQIrLTwwAfp1KjgBAistPDAB+nUqOAECKy08MAH6dSo4AQIrLTwwAfp1KjgBAistPDAB+nUqOAECKy08MAH6dSo4AQIrLTwwAfp1KjgBAistPDAB+nUqOAECKy08MAH6dSo4AQIrLTwwAfp1KjgBAistPDAB+nUqOAECKy08MAH6dSo4AQIrLTwwAfp1KjgBAistPDAB+nUqOAECKy08MAH6dSo4AQIrLTwwAfp1KjgBAistPDAB+nUqOAECKy08MAH6dSo4AQIrLTwwAfp1KjgBAistPDAB+nUqOAECKy08MAH6dSo4AQIrLTwwAfp1KjgBAistPDAB+nUqOAECKy08MAH6dSo4AQIrLTwwAfp1KjgBAistPDAB+nUqOAECKy08MADt3ehqG4XcYhvr8Ph3rc+djKm/vB0B138GXR9fCv0sp9fm/x/m7rb/OH7M5CHx5tLJW1mtr8bXgh4/WIDgD8DMbuQ+L2Ehwd9XfO0YjEFaDukU+Yd8ePm0Bdb+tEEQ8ni5+/uEmCN6iwI1c/dVnKAATBBFTYPNVFDQNNv/cj1ZaCwD2nAKnUsrHI9OvvL4nCNGrv8kE2Gkr2GTcrwVjp20hfPU3A2CCYKtLribBuXgI3wKunGA9e93drPjlpHhxWwi76XNtwjUF4PKBxABDx/3abeGJibD7+cqaz94FAAsQ6o/zy67LXbubd/DWGI3UzM4R6mEvt5q79NEVAJElcay/CQBAchIAAACSJ5DcPhMAAJInkNw+EwAAkieQ3D4TAACSJ5DcPhMAAJInkNw+EwAAkieQ3D4TAACSJ5Dc/h/RIh2fRkLc0AAAAABJRU5ErkJggg==" alt="saved">
             </a>
           </div>
         </div>
@@ -54,6 +56,5 @@
 
       </div>
     </div>
-    <script type="module" src="/src/main.js"></script>
   </body>
 </html>

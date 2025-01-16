@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/nav.css">
+    <title>Binge Finder</title>
+    <link rel="stylesheet" href="./src/home.css">
+  </head>
+  <body>
+
+    <nav>
+      <div class="topnav">
+        <div id="navItems">
+          <a href="./index.html" id="logo">
+            <img class="icons" src="Assets/popcorn.png" alt="popcorn">
+          </a>
+          <!-- Search Bar -->
+          <form class="search-bar" action="">
+            <input id="search" type="text" placeholder="Search.." name="query">
+            <button type="submit" aria-label="Search">
+              <img id="magnifying-glass" src="Assets/magnifying-glass.png" alt="">
+            </button>
+          </form>
+          <!-- Saved Icon -->
+          <div class="saved-container">
+            <a href="./saved/">
+              <img class="icons" id="saved" src="Assets/saved.png" alt="saved">
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div id="app">
+      <div id="heading">
+        <h3>Welcome to...</h3>
+        <h1><span style="color: red; font-size: 70px;">B</span>inge Finder</h1>
+      </div>
+      <h3 id="show-header">Tv Shows</h3>
+      <div class="pag">
+        <svg width="30px" id="left-pag" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="48" height="48" fill="#fff" fill-opacity="0.01"></rect>
+          <path d="M24 36L12 24L24 12" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M36 36L24 24L36 12" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        <h3 id="current-page">1</h3>
+        <svg width="30px" id="right-pag" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="48" height="48" fill="#fff" fill-opacity="0.01"></rect>
+          <path d="M12 12L24 24L12 36" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M24 12L36 24L24 36" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+      </div>
+      <div id="main-show-div">
+
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

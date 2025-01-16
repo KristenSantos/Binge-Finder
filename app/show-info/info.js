@@ -1,6 +1,9 @@
 const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
 const id = params.id;
+import redStar from "../Assets/redstar.png";
+import whiteStar from "../Assets/Star.png";
+
 
 //
 const image = document.createElement("img");
@@ -24,7 +27,7 @@ const starClick = (showData) => {
   if (id in savedShows) {
     delete savedShows[id];
     localStorage.setItem("shows", JSON.stringify(savedShows));
-    starButton.src = "../Assets/Star.png";
+    starButton.src = whiteStar;
   } else {
     savedShows[id] = {
       name: showData.name,
@@ -37,7 +40,7 @@ const starClick = (showData) => {
       },
     };
     localStorage.setItem("shows", JSON.stringify(savedShows));
-    starButton.src = "../Assets/redstar.png";
+    starButton.src = redStar;
   }
 };
 const stat = document.getElementById("status");
@@ -66,7 +69,7 @@ const fetchCast = async (id) => {
 const updateInfo = async (id) => {
   const showData = await fetchShow(id);
   if (id in savedShows) {
-    starButton.src = "../Assets/redstar.png";
+    starButton.src = redStar;
   }
   starButton.addEventListener("click", () => starClick(showData));
   image.src = showData.image.medium || showData.image.original;
