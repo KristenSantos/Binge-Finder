@@ -43,7 +43,7 @@ const showLister = (shows) => {
         cardDiv.append(img, overlayDiv, ratingDiv);
         cardDiv.addEventListener('click', (e) => {
             if (!(e.target.matches('svg') || e.target.matches('path'))) {
-                window.location.href = `./show-info.html?id=${show}`;
+                window.location.href = `/Binge-Finder/show-info/?id=${show}`;
             }
         });
 
