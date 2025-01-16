@@ -138,8 +138,9 @@ const updateCast = async (id) => {
     const castMemberCharacter = document.createElement("p");
     const flipCard = document.createElement('div');
     flipCard.classList.add("flip-card", "flipImg");
-    let frontImg = castMember.image? castMember.image.original: "https://thumbs.dreamstime.com/b/woman-icon-picture-profile-female-icon-human-people-sign-symbol-template-design-vector-woman-icon-picture-197275689.jpg";
-    let backImg = character.image? character.image.original: "https://thumbs.dreamstime.com/b/woman-icon-picture-profile-female-icon-human-people-sign-symbol-template-design-vector-woman-icon-picture-197275689.jpg"
+    let placeholder = castMember.gender === "Male"? "https://st4.depositphotos.com/9998432/25177/v/450/depositphotos_251778046-stock-illustration-person-gray-photo-placeholder-man.jpg": "https://thumbs.dreamstime.com/b/woman-icon-picture-profile-female-icon-human-people-sign-symbol-template-design-vector-woman-icon-picture-197275689.jpg";
+    let frontImg = castMember.image? castMember.image.original: placeholder; 
+    let backImg = character.image? character.image.original: placeholder;
     flipCard.innerHTML = `
       <div class="flip-card-inner">
         <div class="flip-card-front">
